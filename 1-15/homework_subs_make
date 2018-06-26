@@ -1,0 +1,6 @@
+Now write a single program that calls an external function.  It can
+call one external function to solve for the rooot near 2.42, and
+another to solve for the root near 1.15. Write a makefile 
+that can compile the program to run with one or the other 
+external function, with the change being made only by moving
+the comment character from one line to another in the Makefile.

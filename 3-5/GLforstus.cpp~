@@ -1,0 +1,55 @@
+/*********************************
+For students. Below are the xi and wi for 10 
+point Gauss-Laguerre integration. Use these values 
+to find a numerical estimate of the integral 
+of 1/(1+x^3) from 0 to infinity. Note that the 
+exact answer is 2*Pi/3/Sqrt(3)=
+1.2091995761561452337
+
+Also, use these values to find the integral from
+0 to infinity for the function exp(-x)*cos(x). It 
+will be shown in class that the exact value of this
+integral is 0.5.
+
+
+ *********************************/
+#include<iostream>
+
+
+using namespace std;
+
+
+
+
+extern double f(double);
+
+double xi[]={
+  0.1377934705,
+  .7294545495,
+  1.8083429017,
+  3.4014336978,
+  5.5524961400,
+  8.3301527467,
+  11.8437858379,
+  16.2792578313,
+  21.9965858119,
+  29.9206970122};
+
+  double wi[]={
+    .308441115768,
+    .401119929155,
+    .218068287612,
+    .0620874560987,
+    .00950151697518,
+    .000753008388588,
+    .0000282592334960,
+    .000000424931398496,
+    .00000000183956482398,
+    .000000000000991182721961
+  };
+
+  int main(){
+
+
+
+    return(0);}

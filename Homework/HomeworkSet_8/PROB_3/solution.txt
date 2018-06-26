@@ -1,0 +1,42 @@
+The problem: Estimate the intergral
+I = integral_(-1)^1 e^(-x) sin(pi*x) dx
+A fairly precise value for this intergral is
+I = −0.6793261834020956 .
+
+PROBLEM 3: (30 points) Consider the (nonclassical) orthogonal polynomials –call them Bn(x)– based on the interval [-1,+1] and the weight function e−x. Use a two-point Gaussian method based on this set of orthogonal polynomials to estimate the integral I. You are not to hand in a program, but rather a write up including: The values of the nodes x1,x2; the values of the weights w1,w2; the formula you use to find the estimate; the numerical value of the estimate. You are to hand in your solution and explanation in text, *.doc, pdf, or any reasonable format. (If it is not reasonable, I will send it back to you.) Hint: If you choose the polynomial to be “monic,” (i.e., to have the coefficient of its highest power be one) then the first two polynomials of this set, to sufficient accuracy are:
+B0(x) = 1
+B1(x) = x + 0.313035 . . .
+
+******************************************
+Solution:
+Two nodes: x1 = -0.688560, x2 = 0.419681
+Weightes:  w1 = 1.553970, w2 = 0.796428
+Formula: g(x) = sin(pi*x)
+Estimate: I = -0.517989
+Error: 0.161337
+******************************************
+Step by Step:
+
+B0(x) = 1
+Let B1(x) = x + a
+solve a from integral_(-1)^1 e^(-x) B0(x) B1(x) dx = integral_(-1)^1 e^(-x) (x+a) dx = 0
+==> a = (csch(1))/e ~ 0.313035
+
+Let B2(x) = x^2 + b1 x + b2
+solve b1, b2 from integral_(-1)^1 e^(-x) B0(x) B2(x) dx = integral_(-1)^1 e^(-x) B1(x) B2(x) dx = 0
+==> b1 = 0.268879,   b2 = 0.289761
+==> B2(x) = x^2 + 0.268879 x - 0.2889761 = 0 has 2 roots: x1 = -0.688560, x2 = 0.419681
+
+for I = integral_(-1)^1 e^(-x) sin(pi*x) dx
+f(x) = e^(-x) sin(pi*x), w(x) = e^(-x), g(x) = sin(pi*x)
+integral_(-1)^1 f(x) dx = integral_(-1)^1 w(x) g(x) dx ~ sum_(i=1)^n w_i g(x_i)
+
+Since  integral_(-1)^1 w(x) dx = integral_(-1)^1 exp(-x) dx --> w1 + w2 = 2 sinh(1)
+       integral_(-1)^1 w(x) B1(x) dx = integral_(-1)^1 exp(-x) B1(x) dx
+       		       --> w1*(x1 + a) + w2*(x2 + a) = 0
+   Solve for w1, w2 ==> w1 = 1.553970, w2 = 0.796428
+
+Hence, I = w1*sin(pi*x1) + w2*sin(pi*x2) = -0.517989
+
+*******************************************
+

@@ -1,0 +1,73 @@
+/*******************************
+
+This program, written on April 27, 2014
+shows the results of a "by hand" FFT.
+It is meant to be extended by students 
+in class.
+
+*********************************/
+
+
+#include<iostream>
+#include<stdlib.h>
+#include<math.h>
+#include<stdio.h>
+#include<complex>
+using namespace std;
+
+double const PI=4*atan(1.);
+
+typedef complex<double> dcmplx;
+
+
+dcmplx x[8],ex;
+dcmplx CapX[8],Xsum[8];
+
+int main(void){
+
+
+  /********READ IN DATA*******************/
+	FILE *randread;
+	//randread=fopen("unrandom.dat","r");   //Choose input data
+	 randread=fopen("random.dat","r");
+	
+	for(int k=0;k<9;++k){
+	fscanf(randread,"%lf   %lf\n",&real(x[k]),&imag(x[k]));
+        }
+               
+	cout<<"\n Original x[n]\n";                
+	for(int h=0;h<8;++h){cout<<h<<"   "<<x[h]<<endl;}
+
+	  fclose(randread);
+	 
+/*****************COMPUTE THE DFT COEFFS CapX[n]******/
+	  for(int n=0;n<8;++n){
+	    CapX[n]=0.;
+	    for(int k=0;k<8;++k){
+	      real(ex)=cos(-PI*n*k/4.);
+	     imag(ex)=sin(-PI*n*k/4.);
+	         CapX[n]+=ex*x[k];  
+	    }           
+	  	           } 
+           
+	  cout<<"\n DFT coeffs CapX[n]\n";                 //Write DFT
+	for(int h=0;h<8;++h){cout<<h<<"   "<<CapX[h]<<endl;}
+	
+
+	cout<<endl;
+	for(int n=0;n<8;++n)
+	  {
+	    Xsum[n]=0.;
+	    for(int k=0;k<8;++k)
+	      {
+		real(ex)=cos(PI*n*k/4.);
+		imag(ex)=sin(PI*n*k/4.);
+		Xsum[n]+=ex*CapX[k];
+	      }
+	  }
+	dcmplx eight(8.,0);
+	for(int h=0;h<8;++h)
+	  cout<<h<<"\t"<<Xsum[h]/eight<<endl;
+
+	return(0);
+}

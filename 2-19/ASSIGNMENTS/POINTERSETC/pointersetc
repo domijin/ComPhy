@@ -1,0 +1,56 @@
+variable  x
+
+----- THE TWO MEANINGS OF * ----------
+
+(1) IN INITIATION
+*x <=  indicates a pointer in a declaration of 
+type, e.g.,   
+      int main() {
+      int *x;  //<--   or int * x;
+      return 0;}
+This means that "x" is a memory address.
+        BUT
+
+(2) AS THE DEREFERENCING OPERATOR
+When * is used as an operator within the program, it is understood
+to be the dereferencing operator, the operator that extracts the
+VALUE stored at a memory location. Thus, if x is a pointer, the
+symbol *x in the program would mean the value stored at the memory 
+location x.  Clear??  See pointerexample.cpp
+
+----- THE TWO MEANINGS OF & ----------
+
+(1) THE REFERENCING OPERATOR
+
+Consider 
+int main(){
+int x;
+cout<<&x<<endl;
+
+Here x is introduced as an integer, a value. It is stored in 
+some memory location. Here & is an operator equivalent to 
+"what is the memory location of?", so that the cout line
+above will print out the memory location at which x is
+stored.
+                 BUT
+
+(2) REFERENCE VARIABLES AND &
+
+#include<iostream>
+using namespace std;
+int main(){
+int x=10;
+int &y=x;
+cout<<x<<"  "<<&x<<endl;
+cout<<y<<"  "<<&y<<endl;
+return(0);}
+
+The output of this program is 
+10  0x7ffff0c7b424
+10  0x7ffff0c7b424
+
+The lince 
+    int &y=x;
+simply made y another name for x. It has the same memory location 
+and (of course) the same value.
+

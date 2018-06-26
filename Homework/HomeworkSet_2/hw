@@ -1,0 +1,174 @@
+PROBLEM 1
+---------
+
+Equations can be solved by writing them in the 
+form x=f(x), then using the iteration
+           x_new=f(x_old)
+The new value will be a better approximation to a root than the old
+value if |df/dx| is less than unity when evaluated at the root.
+We'll call this solution method "substitution."
+
+The equation 
+       x^3-10x+10=0
+has a root near x=1.15 and another near x=2.42.  Write two programs
+subs1.cpp and subs2.cpp. The first should use substitution that
+converges successfully (for a sufficiently good first guess) in the
+case of the root near 2.42; the second should converge successfully
+for the root near 1.15.
+
+Your programs should have the following features:
+
+* Like every program you write, you should have comments 
+making the program very clear to anyone reading the program.
+
+* Your program should use the function facility of C++
+so that your program could easily be adapted to find the
+zero of 
+
+* Your program should converge to the roots with enough
+accuracy that |x^3-10x+10| is less than 1.0e-5
+
+* Your programs should limit the number of iterations to 100.
+(This is to keep a program from running incorrectly and not 
+reaching a stop.)
+
+* Your program should promt the user to put in a first guess
+for the root. It should then print to the screen every subsequent
+estimate of the root. It should also print to the screen the iteration
+number.
+
+
+* You will want to use #include<math.h> if you use mathematical
+functions like "fabs"  (absolute value for floating point expressions)
+or pow(x,y) (the function x^y).
+
+* Here is an example. The executable is named "run1." The compilation 
+and the output are shown.
+
+hostname % g++ -o run1 subs1.cpp
+hostname % run1
+Enter initial guess
+2.42
+2.42156     1   
+2.42245     2   
+2.42296     3   
+2.42325     4   
+2.42341     5   
+2.4235     6   
+2.42355     7   
+2.42358     8   
+2.4236     9   
+2.42361     10   
+2.42362     11   
+2.42362     12   
+2.42362     13   
+2.42362     14   
+
+
+Name your C++ input file subs1.cpp and email it to me.
+
+=======================================================================
+PROBLEM 2
+---------
+
+Now write a single program that calls an external function.  It can
+call one external function to solve for the rooot near 2.42, and
+another to solve for the root near 1.15. Write a makefile that can
+compile the program to run with one or the other external function,
+with the change being made only by moving the comment character from
+one line to another in the Makefile.
+ 
+Give the name solver.cpp to your main function, and the names funct1.cpp
+and funct2.cpp to the two functions. Sent to me, by email, the files
+for 
+    solver.cpp
+    funct1.cpp
+    funct1.cpp
+    Makefile 
+======================================================================
+PROBLEM 3
+---------
+[NOTE: This problem will teach you the simplest method of root finding: bisection, 
+and will teach how to output results to the screen without using "cout."]
+
+
+For the function f=x^3-10x+10, you can easily calculate that
+f(2)=-2 and f(4)=34. This means that there must be a root of f
+between x=2 and x=4. (It also suggests that the root is closer
+to x=2 than to x=4.)
+
+Write a c++ program to find this root of f by using the method of
+bisection, starting with 2 and 4. (This program is distinct from the
+program to come in the next problem, one that doesn't assume signs for
+starting values.)
+
+The bisection method has you evaluate the function at a midpoint.. in
+this case at (2+4)/2=3. If f(3) is positive, then a root must
+lie between x=2 where f is negative and x=3 where f is positive.
+Now you repeat, by looking at the interval 2<x<3, looking at the value
+of f at the midpoint x=2.5, and so forth.
+
+In your code, have the program print out the sequence of approximations
+at each step, and print out the final answer to an accuracy of
+1 part in 10^12.
+
+Some useful suggestions:
+-----------------------
+
+If you want to use the absolute value operator, look of "fabs"
+and be sure to include math.h
+
+The following syntax will print out the value of the double precision
+variable "result" with 2 spaces to the left of the decimal point, and
+14 to the right. The symbol "lf" ("long float") signifies a double
+precision float.
+
+printf("the result is %2.14lf\n",xmed);
+
+You'll need to include <stdio.h>, and you should not (MUST NOT)
+include <iostream>. (That was needed for "cout" and you won't be 
+using "cout."
+
+
+Name your program bisect1.cpp and email it to me.
+
+==============================================================
+
+PROBLEM 4
+---------
+
+Write a program that uses bissection to solve the problem f(x)=0 with
+the following features: 
+
+* The function f is specified in a separate file. Make two 
+such separate files. One, named cubic.cpp, will define
+the function x^3-10x+10. The other, named xsinx.cpp, will
+define the function x*sin(x).
+
+* The user starts out with a guess for two values xlow and xhigh. If 
+the signs of f(xlow) and f(xhigh) are the same, the program tells
+the user to try again.
+
+* The program has an option that allows the user to specify
+  an accuracy of solution other than the default accuracy 1.0e-12.
+
+* You must use a makefile to compile. In your makefile, you should
+need to change only a single expression to change the compilation
+and the name of the executable when the choice for fun changes.
+
+
+In your program you may use "cin" (you'll need to include <iostream>)
+but you may not use cout; rather use fprintf (you'll need to include 
+<stdio.h>.
+
+Call the C++ input with the main program bisect2.cpp. Put it, along
+with xsinx.cpp, cubic.cpp and your Makefile, in a directory named
+BISECTMAKE. Make a "tarball" out of that directory (#tar cvzf
+problem4.tgz BISECTMAKE) and send me the tarball by email.
+
+
+
+
+
+
+

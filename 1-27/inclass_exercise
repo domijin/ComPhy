@@ -1,0 +1,17 @@
+You have an infinite pile of cards with numbers 0 through 9.
+There are twice as many cards with numbers from 5 to 9
+as there are from 0 to 4.
+
+Write a program that asks for N, the number of cards chosen.
+The program should output the number of "low" cards chosen,
+and the number of "high" cards chosen, and should output 
+the average numerical value chosen.
+
+***** Sample output ****************
+
+prompt% a.out
+ How many times do you want to run the experiment?
+10
+
+number of low cards= 3 number of high cards= 7
+ Averge= 5.5

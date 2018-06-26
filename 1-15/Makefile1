@@ -1,0 +1,12 @@
+# In the Makefile, this is a comment
+
+# The next line is new
+CXX = g++
+
+runable: thefunction.o solver.o
+	${CXX}  thefunction.o solver.o  -o run -lm
+
+
+
+clean:
+	rm *.o

@@ -1,0 +1,19 @@
+testgood.cpp:
+
+The main calls for the function swap with the parameters expressed by
+address. swap defines its inputs to be addresses. The "temporary"
+variables a and b are defined as addresses, and the action of swap is
+to interchance the values stored at those addresses. It works and it
+all makes sense.
+
+===================================================================
+
+testbad.cpp
+
+Again, the main calls for the function swap with the parameters expressed by
+address. Again, swap defines its inputs to be addresses. Here, however, the 
+temporary variables a,b are defined as addresses. The action of swap is to interchange the values at these addresses. Thus the value stored in v becomes the value stored in b, etc.   This program crashes.  WHY? 
+
+===================================================================
+
+

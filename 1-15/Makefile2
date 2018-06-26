@@ -1,0 +1,12 @@
+# In the Makefile, this is a comment
+
+CXX = g++
+
+LDFLAGS = -lm
+
+
+runable: thefunction.o solver.o
+	${CXX}  thefunction.o solver.o  -o run ${LDFLAGS}
+
+clean:
+	rm *.o

@@ -1,0 +1,4 @@
+<f> = int_a^b f(x) p(x) dx
+      int_a^b p(x) dx
+p(x) = exp(-x), x belongs to (0,1)
+

@@ -1,0 +1,24 @@
+Challenge #1
+N=10     error=     -5.059063877068e-01
+N=100  	  error=  -3.505496252817e-03
+N=1000	   error=  -4.523127032918e-07
+N=1001	    error=  -6.847990919878e-07
+N=1500   error=  -2.193735191280e-07
+N=1510	  error=  -1.923939038084e-07
+N=2000	   error=  -1.393656358095e-07
+N=5000   error=  -1.708182062465e-08
+
+The error for 4th runge kutta is proptional to 1/h^5, and double precision for c++ is 
+1e-16. Error for N=1000 is 1e-15, while error for N=1001 is around 9e-16. 
+This is the best precision of double format for c++.
+
+Challenge #2
+
+
+
+Challenge #3
+Double precision for c++ is 1e-16. After the code reach this precision, the roundoff 
+error for double format will be accumulated by sqrt(N).
+
+
+Challenge #4

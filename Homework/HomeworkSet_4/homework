@@ -1,0 +1,117 @@
+	HOMEWORK SET 4
+        ----------------
+In this homework set, and all subsequent homework sets, organize
+your submission as follows:
+(i)  create a directory "HomeworkSet_4"
+(ii) create subdirectories PROB_1, PROB_2, etc.
+(iii)put materials in the appropriate subdirectories
+(iv) make a tarball hwset4.tgz of  HomeworkSet_4 and email it 
+                 to me.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PROBLEM 1 (10 points)
+--------------------
+With this problem you will finish the exercise we started in
+class working with nonuniform distributions.
+
+You have an infinite pile of cards with numbers 0 through 9.
+There are twice as many cards with numbers from 5 to 9
+as there are from 0 to 4.
+
+Write a program, nonuniform.cpp, that asks for N, the number of cards
+chosen.  The program should output the number of "low" cards (0 to 4)
+chosen, and the number of "high" cards chosen (5-14), and should
+output the average numerical value of the N cards chosen.
+
+Hand in: your program nonuniform.cpp
+***** Sample output ****************
+
+prompt% a.out
+ How many times do you want to run the experiment?
+10
+
+number of low cards= 3 number of high cards= 7
+ Averge= 5.5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PROBLEM 2 (20 points)
+--------------------
+
+On Monday, Jan 27, we worked with the program binom.cpp.
+I demonstrated a program, binom_forplot.cpp, that did 
+the same computation, but then output the results in 
+an external file named "real.dat."  The program also
+uses the computed mean and variance to generate
+a gaussian distribution with those values of the mean
+and the variance.  The program then generates an
+external file "ideal.dat."  The two external files
+can be put into a plotting routine to generate the 
+"real" values and the "ideal" values, as shown in class.
+
+Hand in: 
+     Your program binom_forplot.cpp
+     real.dat
+     ideal.dat
+     A graphical version of a plot with both curves
+     (the plot can be a pdf, ps, jpeg, gif, or png)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PROBLEM 3 (40 points)
+--------
+
+Look up the method for fourth-order Runge-Kutta solutions to
+first-order ordinary differential equations.  You will find many
+hits on the web. "RK4" is probably the most widely used approach
+for solving ODEs.A good, clear, straightforward reference is the
+numerical-methods section of the Abramowicz & Stegun "Handbook" at
+  http://apps.nrbook.com/abramowitz_and_stegun/index.html
+You will find the appropriate method on p.896, formula 25.5.10.
+
+You will be writing a program rk4solver.cpp that solves a differential equation
+        y'=f(x,y)
+with the function f(x,y) that is in an external file named function.cpp. 
+Your rk4solver.cpp program should be able to solve any first order diff eq
+that can be put into the form y'=f(x,y). You should write a Makefile that compiles and links the two programs.
+
+Your program's features should be as follows:
+* It should ask the user for xin the starting value of x and xfin, the final
+value of x. 
+
+* It should ask the user for the starting value of y.
+
+* It should ask the user for the value of the integer N that is the number 
+of divisions into which the range of x is to be divided. Note that 
+       h=(xfin-xin)/N
+
+* It should print out the value of the solution at xfin, that is, it 
+should print out the computed value of y(xfin). It should do this
+printout with 14 decimal places. To see how to do this, look up 
+the C instruction: "printf"
+
+
+* It should have an option flag -r. If this flag is set, the program should 
+Richardsonize the rk4 results and print out both the rk4 value 
+of y(xfin) and the Richardsonized value of y(xfin).
+
+* You should choose the function f so that you will be solving the diff eq
+                     dy/dx+y*sin(x)=y^2*e^x
+
+
+
+NOTE: TO SEE HOW TO SET FLAGS, LOOK AT THE PROGRAM secant.cpp THAT 
+WAS HANDED OUT.
+
+Hand in: Your program rk4solver.cpp
+                      function.cpp
+                      Makefile
+-------------------------------------
+Example: The output of my program
+prompt% rk4solve -r
+Enter values of xin and xfin
+1 3
+Enter value of yin
+1
+Enter value of N
+10
+Result for h       0.050276170594
+Result for h/2     0.050259265212
+Richardson result  0.050258138187

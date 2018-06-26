@@ -1,0 +1,11 @@
+# In the Makefile, this is a comment
+
+CXX = g++
+
+LDFLAGS = -lm
+SOURCE = thefunction.o solver.o
+runable: thefunction.o solver.o
+	${CXX}  ${SOURCE:.o=.cpp} -o $@ ${LDFLAGS}
+
+clean:
+	rm *.o

@@ -1,0 +1,91 @@
+HOMEWORK
+
+These problems are to be handed in before 5pm on Tuesday,
+Jan 28. 
+
+
+
+
+PROLEM 1  
+-------
+Write a program to solve the problem posed in the included 
+pdf, the problem of finding x,y that solve F_1=F_2=0, where
+
+F_1=sin(x+y)-exp(y/x)+5    F_2=x^4+y^4-1
+
+by Newton's method for 2 nonlinear equations.
+
+Hand in the program "solver.cpp" that does the computation
+"solver.cpp" and two programs FUN1.cpp and FUN2.cpp that contain the
+necessary information about the functions F_1 and F_2.  
+
+The user should enter the initial guesses at x,y after which the 
+program should print out the "improved" guesses, and the values
+of F1 and F2.
+
+Hand in the
+makefile for putting this all together. Your solution should be
+accurate enough so that BOTH F1 and F1 vanish to within 1e-10.
+[HINT: For "both" you might want to look into the C++ "||" meaning "or"
+or "&&" meaning "and."]
+
+
+------------------------------------------
+Here is the screen appearance for my program:
+
+prompt% make
+g++    -c -o FUN1.o FUN1.cpp
+g++    -c -o FUN2.o FUN2.cpp
+g++    -c -o solver.o solver.cpp
+g++  FUN1.o FUN2.o solver.o  -o runable -lm
+prompt% runable 
+enter x
+.5
+enter y
+1
+0.5   1   -1.39156   0.0625
+0.536922   0.97976   -0.202844   0.00457235
+0.545126   0.977194   -0.00623858   0.000155455
+0.545392   0.977106   -6.28685e-06   1.70892e-07
+0.545393   0.977106   -6.37623e-12   1.76303e-13
+------------------------------------------
+
+
+
+
+PROBLEM 2
+---------
+
+Read in the attached file "in.dat" with a column of 40 numbers. Write
+a program "processdata.cpp" that takes each of the numbers, adds one,
+takes the square root, and prints out the resulting numbers in a file
+titled "out.dat".  Hand in only the file "processdata.cpp".
+
+
+PROBLEM 3
+--------
+Write a simple program "permute.cpp" that starts with array a[0]=1, a[1]=2..a[4]=5.
+The program requires that the user enter an integer N. The program then
+computes an array b[0].. b[4] representing the a array cyclically 
+permuted N times.
+E.g. if N=3 then 
+   b[0]=4 b[1]=5  b[2]=1 b[3]=2  b[4]=3
+Have the program print these numbers to the screen in 
+a horizontal line with spaces.  [Note: You  will want to use the modulus operator %.
+Look up how to use this operator in C++.]
+
+Hand in, only the program permute.cpp.
+
+-----------------------------
+As an example, her is the screen contents for the running of my permute.cpp
+
+prompt% g++ permute.cpp
+prompt% a.out
+Enter the number of times you want to have  1 2 3 4 5 permuted
+12
+
+
+ The permutation by 12 is:
+
+       3   4   5   1   2   
+-----------------------------
